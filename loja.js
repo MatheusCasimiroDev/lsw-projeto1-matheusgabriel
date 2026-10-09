@@ -17,7 +17,7 @@ function listarprodutos(produtos){
 }
 
 function cadastrarproduto(produtos, nome, categoria, preco, quantidade){
-    produtos.push(nome: "nome", categoria: "categoria", preco= preco, quantidade= quantidade, vendidos = 0);
+    produtos.push(nome= "nome", categoria= "categoria", preco= preco, quantidade= quantidade, vendidos = 0);
     console.log("Produto cadastrado! Agora a loja tem " + produtos.length + " produtos!");
 }
 
@@ -29,4 +29,9 @@ function calcularvalorestoque(produtos){
     return somaestoque;
 }
 
-function
+function buscarProduto(produtos,termo){
+    if(produtos.includes(termo)){
+        return termo.indexof.produtos;
+    }
+    else return null;
+}
