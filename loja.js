@@ -15,4 +15,18 @@ function listarprodutos(produtos){
         k++
     });
 }
-listarprodutos(produtos);
+
+function cadastrarproduto(produtos, nome, categoria, preco, quantidade){
+    produtos.push(nome: "nome", categoria: "categoria", preco= preco, quantidade= quantidade, vendidos = 0);
+    console.log("Produto cadastrado! Agora a loja tem " + produtos.length + " produtos!");
+}
+
+function calcularvalorestoque(produtos){
+    let somaestoque = 0;
+    produtos.forEach(produtos=> {
+     somaestoque= somaestoque + (preco * quantidade);
+    })
+    return somaestoque;
+}
+
+function
