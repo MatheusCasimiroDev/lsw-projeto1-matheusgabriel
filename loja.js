@@ -5,5 +5,14 @@ const produtos = [
     {nome: "Camisa", categoria: "Roupa", preco: 35, quantidade: 6, vendidos: 5},
     {nome: "Tenis", categoria: "Roupa", preco: 100, quantidade: 3, vendidos: 3},
     {nome: "Televisao", categoria: "Tecnologia", preco: 3000, quantidade: 5, vendidos: 4},
-    {nome: "Shorts", categoria: "Roupa", preco: 20, quantidade: 7, vendidos: 0},
+    {nome: "Shorts", categoria: "Roupa", preco: 20, quantidade: 7, vendidos: 1},
 ]
+
+function listarprodutos(produtos){
+    let k = 1;
+    produtos.forEach(produtos => {
+        console.log( k +  " " + produtos.nome + " | " + produtos.categoria + " | R$: " + produtos.preco + " | Quantidade: " + produtos.quantidade + " | Vendidos: " + produtos.vendidos + " | " + "\n" );
+        k++
+    });
+}
+listarprodutos(produtos);
