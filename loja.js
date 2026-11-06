@@ -18,7 +18,7 @@ function listarProdutos(lista) {
         console.log(`${i + 1}. ${p.nome} | ${p.categoria} | R$ ${p.preco} | ${p.quantidade} un. | ${p.vendidos} vendidos`);
     }   
     //usei for de comando de repetição porque ja sabia a quantidade (que são os produtos da lista) e usei console log pra printar os  produtos da lista
-    // cada sifrao desse identifica cada categoria
+    // cada sifrao desse puxa cada categoria/nome/preço
 }
 
 function formatarNome(texto) {
@@ -46,7 +46,7 @@ function calcularValorEstoque(lista) {
     for (let i = 0; i < lista.length; i++) {
         total += lista[i].preco * lista[i].quantidade;
     }
-    //declara o total = 0 e vai adicionando o valor de cada produto em estoque
+    //declara o total = 0 e vai adicionando o valor de cada produto em estoque cada vez que o i adicionar +1
     return total;
 }
 
