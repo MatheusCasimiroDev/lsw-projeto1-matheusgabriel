@@ -8,20 +8,26 @@ const produtos = [
     { nome: "Televisão", categoria: "Tecnologia", preco: 3000, quantidade: 5, vendidos: 4 },
     { nome: "Shorts", categoria: "Roupa", preco: 20, quantidade: 7, vendidos: 1 }
 ];
+//aqui eu declarei os produtos normal usando const
+
 
 // ===== 2. FUNÇÕES =====
 function listarProdutos(lista) {
     for (let i = 0; i < lista.length; i++) {
         const p = lista[i];
         console.log(`${i + 1}. ${p.nome} | ${p.categoria} | R$ ${p.preco} | ${p.quantidade} un. | ${p.vendidos} vendidos`);
-    }
+    }   
+    //usei for de comando de repetição porque ja sabia a quantidade (que são os produtos da lista) e usei console log pra printar os  produtos da lista
+    // cada sifrao desse identifica cada categoria
 }
 
 function formatarNome(texto) {
     const limpo = texto.trim();
     if (limpo.length === 0) return "";
     return limpo.charAt(0).toUpperCase() + limpo.slice(1).toLowerCase();
+    //remove espaços extras das pontas e deixa apenas a primeira letra maiúscula e o restante minúsculo. Retorna texto vazio se não houver conteúdo
 }
+
 
 function cadastrarProduto(lista, nome, categoria, preco, quantidade) {
     lista.push({
@@ -32,6 +38,7 @@ function cadastrarProduto(lista, nome, categoria, preco, quantidade) {
         vendidos: 0
     });
     return lista.length;
+    // a funcao push empurra um item pra ultima posicao de um vetor que é a lista.
 }
 
 function calcularValorEstoque(lista) {
@@ -39,6 +46,7 @@ function calcularValorEstoque(lista) {
     for (let i = 0; i < lista.length; i++) {
         total += lista[i].preco * lista[i].quantidade;
     }
+    //declara o total = 0 e vai adicionando o valor de cada produto em estoque
     return total;
 }
 
@@ -49,6 +57,7 @@ function buscarProduto(lista, termo) {
             return lista[i];
         }
     }
+    //Procura o primeiro produto em uma lista cujo nome contenha o termo pesquisado sem diferenciar maiúsculas de minúsculas. Retorna o objeto encontrado ou null.
     return null;
 }
 
@@ -59,6 +68,7 @@ function produtosEmFalta(lista, minimo) {
             emFalta.push(lista[i]);
         }
     }
+    //Filtra e retorna uma lista com os produtos cuja quantidade em estoque é menor que o valor mínimo especificado.
     return emFalta;
 }
 
@@ -70,6 +80,7 @@ function aplicarDesconto(lista, categoria, percentual) {
             alterados++;
         }
     }
+    //Aplica o desconto percentual no preço de todos os produtos de uma categoria específica. Retorna a quantidade de itens alterados.
     return alterados;
 }
 
@@ -81,14 +92,19 @@ function registrarVenda(lista, nome, quantidade) {
     produto.quantidade -= quantidade;
     produto.vendidos += quantidade;
     return true;
+    //essa funcao valida o estoque e conclui a venda. O buscarProduto acha o item na lista, o if interrompe a execução retornando falso se faltar estoque, os operadores -= e += atualizam os totais e o `return true` confirma que deu certo.
 }
 
 function converterParaJSON(lista) {
     return JSON.stringify(lista);
+    //converte pra json oxe
+    //converte o array lista pra json no caso ne
 }
+
 
 function lerJSON(texto) {
     return JSON.parse(texto);
+    //converte o array de json pra js denovo!!
 }
 
 function gerarRelatorio(nome, lista) {
@@ -102,9 +118,11 @@ function gerarRelatorio(nome, lista) {
     for (let i = 0; i < emFalta.length; i++) {
         console.log(`- ${emFalta[i].nome} (${emFalta[i].quantidade} un.)`);
     }
+    //esse codigo gera um relatorio no console as consts chamam as funcoes para calcular o estoque e achar itens baixos o console.log imprime as informacoes formatadas o nome.toUpperCase deixa o titulo maiusculo o lista.length conta o total o emFalta.length conta os em falta e o for percorre a lista para listar cada item critico !!1
 }
 
 // ===== 3. PROGRAMA PRINCIPAL =====
+//esse codigo testa todo o sistema o console.log exibe cada etapa na tela as consts guardam o retorno de funcoes como cadastrar buscar e converter dados os ifs tratam buscas e vendas checando se deram certo e o typeof verifica o tipo de dado para confirmar que o json virou texto, depois daqui ja era vapo!
 console.log("--- Tarefa 2: listar ---");
 listarProdutos(produtos);
 
